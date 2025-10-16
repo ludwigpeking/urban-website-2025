@@ -1,0 +1,657 @@
+/* Reset and Base Styles */
+* {
+  color: #333;
+  text-align: left;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-indent: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: white;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  min-width: 100vw;
+}
+
+/* Mobile Landing Page */
+.mobile-landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.mobile-logo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.mobile-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-nav-btn {
+  background-color: white;
+  color: #333;
+  border: 2px solid #333;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.mobile-nav-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #555;
+}
+
+/* Main Content Layout */
+.main-content {
+  display: none;
+  height: 100vh;
+  flex-direction: row;
+  background-color: white;
+  max-width: 1300px; /* 200px logo + 300px TOC + 800px content */
+  margin: 0 auto;
+}
+
+/* Left Logo Column */
+.logo-column {
+  width: 200px;
+  max-width: 200px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: white;
+  position: relative;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.logo-column .header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-column .header-logo svg {
+  width: 150px;
+  height: 150px;
+}
+
+/* Right Panel */
+.right-panel {
+  margin-left: 50px;
+  width: 1100px; /* 300px TOC + 800px content */
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+/* Navigation Header */
+.nav-header {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.header-nav {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.nav-btn {
+  background: none;
+  color: #666;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-btn:hover {
+  color: #333;
+}
+
+.nav-btn.active {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+}
+
+.left-column {
+  width: 300px;
+  max-width: 300px;
+  min-width: 300px;
+  background-color: white;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  flex-shrink: 0;
+}
+
+.left-column::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.left-column.hidden {
+  display: none;
+}
+
+.content {
+  width: 800px;
+  max-width: 800px;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: white;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  flex-shrink: 0;
+}
+
+.content::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.content.full-width {
+  width: 800px;
+  max-width: 800px;
+  border-right: none;
+}
+
+/* Chapter Navigation */
+.chapter-nav {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.chapter-nav.visible {
+  display: flex;
+}
+
+.chapter-nav button {
+  background-color: white;
+  color: #333;
+  border: 2px solid #333;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.chapter-nav button:hover {
+  background-color: #f5f5f5;
+  border-color: #555;
+}
+
+/* Desktop Layout */
+@media (min-width: 769px) {
+  .mobile-landing {
+    display: none;
+  }
+  
+  .main-content {
+    display: flex;
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  body {
+    display: block;
+  }
+  
+  .main-content {
+    max-width: 100vw;
+    margin: 0;
+  }
+  
+  .main-content.show-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-landing.hidden {
+    display: none;
+  }
+  
+  /* Hide desktop logo column on mobile */
+  .logo-column {
+    display: none;
+  }
+  
+  /* Make right panel full width on mobile */
+  .right-panel {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .nav-header {
+    height: auto;
+    padding: 15px;
+  }
+  
+  .header-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .content-wrapper {
+    flex-direction: column;
+    height: calc(100vh - 160px);
+  }
+  
+  .left-column {
+    width: 100%;
+    max-width: none;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    max-height: 40vh;
+  }
+  
+  .content {
+    max-height: 60vh;
+  }
+}
+
+/* Navigation Links Styling */
+.nav-link {
+  text-decoration: none;
+  color: rgb(180, 90, 150);
+  text-indent: 0;
+  z-index: 1;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.nav-link:hover {
+  color: darkmagenta;
+  text-decoration: underline;
+}
+
+/* Content Headings */
+.content h1 {
+  height: auto;
+  text-align: left;
+  font-size: 200%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  position: relative;
+  background: none;
+  max-width: none;
+}
+
+@media screen and (max-width: 800px) {
+  .content h1 {
+    font-size: 150%;
+  }
+}
+
+h2 {
+  font-size: 140%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  position: relative;
+  background: none;
+  text-align: left;
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 120%;
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* Text Elements */
+a, h3, p, pre, li {
+  padding: 0;
+  background: none;
+  line-height: 24px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+ul {
+  margin-left: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Legacy navbar styles (if needed) */
+.navbar {
+  height: 50px;
+  display: block;
+}
+
+.navbar button {
+  background-color: white;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.button-style {
+  background-color: white;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar button:hover,
+.button-style:hover {
+  background-color: #f5f5f5;
+  border-color: #555;
+}
+
+/* Styles for mobile */
+@media screen and (max-width: 600px) {
+  .left-column {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .navbar {
+    display: block;
+    /* Additional styling for buttons */
+  }
+}
+
+@media only screen and (min-device-pixel-ratio: 1),
+  only screen and (min-resolution: 192dpi) {
+  /* High-density screen (e.g., Retina) styles */
+}
+
+.social-icon {
+  margin: 5px 10px; /* Adjust margin to match your design */
+  padding: 0; /* Keep original padding */
+  font-size: 30px; /* Set the font size for the social icons */
+}
+
+/* Styles for larger screens */
+@media (min-width: 600px) {
+  .social-icon {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+/* Styles for smaller screens */
+@media (max-width: 599px) {
+  .social-icon {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.content h1 {
+  height: auto;
+  text-align: left;
+  font-size: 200%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  position: relative;
+  background: none;
+  max-width: 50vh;
+}
+@media screen and (max-width: 800px) {
+  .content h1 {
+    font-size: 120%;
+  }
+}
+h2 {
+  font-size: 120%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* font-weight: bold; */
+  position: relative;
+  background: none;
+  text-align: left;
+}
+
+a,
+h3,
+p,
+pre,
+li {
+  padding: 0;
+  background: none;
+  line-height: 24px;
+}
+.column,
+.home,
+footer {
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(148, 102, 148);
+  text-indent: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+a:hover {
+  color: darkmagenta;
+  text-decoration: underline;
+}
+
+.home {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  align-items: center; /* Align items vertically */
+  width: 100%;
+  left: 0;
+  top: -10px;
+  z-index: 1000;
+  padding: 10px 15px;
+}
+
+.home > a:first-child {
+  flex: 0 0 auto; /* Do not grow, do not shrink, initial size */
+  margin-right: auto; /* Push all other items to the right */
+  font-size: 30px; /* Set the font size for the return home link */
+  color: rgb(140, 99, 140);
+  height: 40px;
+  font-size: 30px;
+  padding: 10px 15px;
+  margin-top: 5px;
+}
+
+@media (min-width: 600px) {
+  .home {
+    flex-wrap: nowrap; /* Do not wrap items */
+  }
+
+  .home > a:first-child {
+    margin-right: 10px; /* Space after the return home link */
+  }
+
+  .social-icon {
+    display: inline-block; /* Display inline on larger screens */
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 599px) {
+  .column {
+    flex: 1 0 100%; /* You can adjust this to make the columns stack differently on smaller screens */
+  }
+  .home > a:first-child {
+    flex-basis: 100%; /* Make the 'return home' link take the full width */
+    margin-bottom: 0px;
+    padding-bottom: 0;
+  }
+
+  .social-icon {
+    margin: 0px 10px; /* Adjust margin for better spacing on mobile */
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* To prevent default inline behavior */
+  margin: 20px auto;
+}
+
+@media screen and (min-width: 800px) {
+  img {
+    max-width: 800px;
+  }
+}
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+#voronoi-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* So that it stays behind the content */
+  background-color: transparent;
+  pointer-events: none; /* So that you can click 'through' the holes */
+  overflow: hidden; /* Hide the parts of the circles that are outside the container */
+}
+figure {
+  display: block; /* Keeps the figure as a block-level element */
+  margin-top: 1em; /* Top margin */
+  margin-bottom: 1em; /* Bottom margin */
+  margin-left: 0; /* Centers the figure horizontally */
+  margin-right: auto; /* Centers the figure horizontally */
+  max-width: 100%; /* Maximum width of the figure */
+  text-align: center; /* Center-aligns the content inside the figure */
+}
+
+/* Figure caption styling */
+figcaption {
+  margin-top: 0.5em; /* Space above the caption */
+  font-style: italic; /* Italicize the caption text */
+  text-align: center; /* Center-align the caption */
+  font-size: 0.9em;
+  color: #666;
+}
+
+.middle-diagram {
+  margin: 5px;
+
+  width: 60%;
+}
+.legend {
+  list-style: none;
+  padding: 0;
+}
+.legend li {
+  margin-bottom: 10px;
+}
+.legend span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.blue {
+  background-color: blue;
+}
+.red {
+  background-color: red;
+}
+.magenta {
+  background-color: magenta;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithms and Urban History</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Mobile Landing Page -->
+    <div id="mobile-landing" class="mobile-landing">
+      <div class="mobile-logo-container">
+        <div id="mobile-logo" class="mobile-logo">
+          <!-- Logo SVG will be loaded here -->
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <button id="mobile-algorithms-btn" class="mobile-nav-btn">The Algorithms on Urbanism and Architecture</button>
+        <button id="mobile-history-btn" class="mobile-nav-btn">An Evolutionary History of the City</button>
+        <button id="mobile-about-btn" class="mobile-nav-btn">About the Author</button>
+      </div>
+    </div>
+
+    <!-- Desktop/Mobile Content Page -->
+    <div id="main-content" class="main-content">
+      <!-- Left Logo Column -->
+      <div class="logo-column">
+        <div class="header-logo">
+          <!-- Logo SVG will be loaded here -->
+          <div class="header-subtitle" style="font-family: Roboto,sans-serif; font-size: 18px; font-weight: 1000; color: #da74a0; margin-top: 15px; text-align: center; line-height: 1.3;"> Richard Qian Li's Site on Algorithms and Urban History</div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <!-- Navigation Header -->
+        <div class="nav-header">
+          <nav class="header-nav">
+            <button id="algorithms-btn" class="nav-btn active" style="width: 350px;">The Algorithms on Urbanism and Architecture</button>
+            <button id="history-btn" class="nav-btn" style="width: 310px;">An Evolutionary History of the City</button>
+            <button id="about-btn" class="nav-btn" style="width: 160px;">About the Author</button>
+          </nav>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-wrapper">
+          <!-- Left sidebar for chapters (only visible when viewing TOCs) -->
+          <div id="left-column" class="left-column">
+            <h2>Chapters</h2>
+            <div id="links-container">
+              <!-- Links will be loaded here -->
+            </div>
+          </div>
+
+          <!-- Main content area -->
+        <div id="content" class="content">
+          <!-- Chapter content goes here -->
+          <p>Welcome! Select a section from the navigation above.</p>
+        </div>
+      </div>
+
+        <!-- Chapter navigation (only visible when reading chapters) -->
+        <div id="chapter-nav" class="chapter-nav">
+          <button id="tocButton">Table of Contents</button>
+          <button id="prevButton">←</button>
+          <button id="nextButton">→</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

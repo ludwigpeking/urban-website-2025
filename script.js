@@ -157,7 +157,7 @@ function loadTOC(section) {
       .then(response => response.text())
       .then(linksData => {
         linksContainer.innerHTML = linksData;
-        contentDiv.innerHTML = '<h1>[The Algorithms on Urbanism and Architecture]</h1><br>' + linksData;
+        contentDiv.innerHTML = '<h1 style="font-size: 200%">[The Algorithms on Urbanism and Architecture]</h1><br>' + linksData;
         contentDiv.scrollTop = 0;
       }).catch(error => console.error("Error loading algorithms content:", error));
   } else if (section === 'history') {
@@ -236,6 +236,11 @@ function loadLogo() {
     .then(response => response.text())
     .then(svgData => {
       document.querySelector('.mobile-logo').innerHTML = svgData;
+      // Load mobile nav logo
+      const mobileNavLogo = document.querySelector('.mobile-nav-logo');
+      if (mobileNavLogo) {
+        mobileNavLogo.innerHTML = svgData;
+      }
       // For header logo, preserve the subtitle
       const headerLogo = document.querySelector('.header-logo');
       const subtitle = headerLogo.querySelector('.header-subtitle');
@@ -254,7 +259,14 @@ function loadLogo() {
       console.error("Error loading logo:", error);
       // Fallback to text logo
       const fallbackLogo = '<div style="font-size: 24px; font-weight: bold;">LOGO</div>';
+      const smallFallbackLogo = '<div style="font-size: 12px; font-weight: bold;">L</div>';
       document.querySelector('.mobile-logo').innerHTML = fallbackLogo;
+      
+      // Load fallback for mobile nav logo
+      const mobileNavLogo = document.querySelector('.mobile-nav-logo');
+      if (mobileNavLogo) {
+        mobileNavLogo.innerHTML = smallFallbackLogo;
+      }
       
       // For header, preserve subtitle with fallback logo
       const headerLogo = document.querySelector('.header-logo');

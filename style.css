@@ -57,21 +57,27 @@ body {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   width: 100%;
-  max-width: 400px;
+  max-width: 280px;
 }
 
 .mobile-nav-btn {
   background-color: white;
   color: #333;
-  border: 2px solid #333;
-  padding: 15px 20px;
-  font-size: 16px;
+  border: 1px solid #333;
+  height: 45px;
+  width: 280px;
+  padding: 5px 5px;
+  font-size: 14px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 22.5px;
   transition: all 0.3s ease;
   font-family: Georgia, "Times New Roman", Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .mobile-nav-btn:hover {
